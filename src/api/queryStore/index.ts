@@ -4,7 +4,9 @@ import { comments } from './comments';
 
 export type QueryPair = Pick<UseQueryOptions, 'queryKey' | 'queryFn'>;
 
-export const queryStore = {
+const queryStore = {
   posts,
   comments,
 };
+
+export default queryStore;
