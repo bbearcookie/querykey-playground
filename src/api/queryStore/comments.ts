@@ -1,15 +1,15 @@
 import axios from 'axios';
-import { IQueryKey } from '../queryKey';
+import { QueryPair } from '../queryStore';
 
 export const comments = {
-  all: (): IQueryKey => ({
+  all: (): QueryPair => ({
     queryKey: ['comments'],
     queryFn: async () => {
       const { data } = await axios.get('https://jsonplaceholder.typicode.com/comments');
       return data;
     },
   }),
-  detail: (id: number): IQueryKey => ({
+  detail: (id: number): QueryPair => ({
     queryKey: ['comments', id],
     queryFn: async () => {
       const { data } = await axios.get(`https://jsonplaceholder.typicode.com/comments/${id}`);

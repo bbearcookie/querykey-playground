@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { queryKey } from '@/api/queryKey';
+import { queryStore } from '@/api/queryStore';
 import './App.css';
 
 function App() {
-  const { data } = useQuery({ ...queryKey.posts.all() });
+  const { data } = useQuery({ ...queryStore.posts.all() });
 
   console.log(data);
 
