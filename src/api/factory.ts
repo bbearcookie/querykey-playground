@@ -10,9 +10,15 @@ type Post = {
 
 export const queries = createQueryKeyStore({
   posts: {
-    all: null,
+    all: () => ({
+      queryKey: ['posts'],
+      queryFn: async () => {
+        const { data } = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+        return data;
+      },
+    }),
     detail: (postId: string) => ({
-      queryKey: [postId],
+      queryKey: ['posts', postId],
       queryFn: async () => {
         const { data } = await axios.get<Post>('https://jsonplaceholder.typicode.com/posts');
         return data;

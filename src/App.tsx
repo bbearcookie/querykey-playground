@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import queryStore from '@/api/queryStore';
 import './App.css';
@@ -27,10 +26,3 @@ function App() {
 }
 
 export default App;
-
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
