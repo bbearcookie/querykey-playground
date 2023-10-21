@@ -1,9 +1,8 @@
-import axios from 'axios';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import queryStore from '@/api/queryStore';
+import { posts } from '@/api/queries/posts';
 
 const Post = () => {
-  const { data } = useSuspenseQuery({ ...queryStore.posts.detail('2') });
+  const { data } = useSuspenseQuery({ ...posts.detail('5') });
 
   console.log(data);
 

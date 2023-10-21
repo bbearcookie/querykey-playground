@@ -1,4 +1,4 @@
-import { createQueryKeyStore, mergeQueryKeys } from '@lukemorales/query-key-factory';
+import { createQueryKeyStore } from '@lukemorales/query-key-factory';
 import axios from 'axios';
 
 type Post = {
