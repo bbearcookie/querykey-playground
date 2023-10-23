@@ -1,7 +1,7 @@
 import { createQueryKeys } from '@lukemorales/query-key-factory';
 import commentAPI from '../functions/commentAPI';
 
-export const comments = createQueryKeys('comments', {
+const comments = createQueryKeys('comments', {
   all: {
     queryKey: null,
     queryFn: commentAPI.fetchComments,
@@ -11,3 +11,5 @@ export const comments = createQueryKeys('comments', {
     queryFn: () => commentAPI.fetchCommentDetail(commentId),
   }),
 });
+
+export default comments;

@@ -1,7 +1,7 @@
 import { createQueryKeys } from '@lukemorales/query-key-factory';
 import postAPI from '../functions/postAPI';
 
-export const posts = createQueryKeys('posts', {
+const posts = createQueryKeys('posts', {
   all: {
     queryKey: null,
     queryFn: postAPI.fetchPosts,
@@ -11,3 +11,5 @@ export const posts = createQueryKeys('posts', {
     queryFn: () => postAPI.fetchPostDetail(postId),
   }),
 });
+
+export default posts;
