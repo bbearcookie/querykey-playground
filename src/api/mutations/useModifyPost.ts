@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Post } from '@/types';
 import postAPI from '../functions/postAPI';
-import queryKeys from '../queryKey';
+import queryKeys from '../queryKeys';
 
 const useModifyPost = () => {
   const queryClient = useQueryClient();

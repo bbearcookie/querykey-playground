@@ -1,13 +1,13 @@
 import { useQuery, useSuspenseQuery, useMutation } from '@tanstack/react-query';
 import useModifyPost from './api/mutations/useModifyPost';
 import postAPI from './api/functions/postAPI';
-import queryKey from './api/queryKey';
+import queryKeys from './api/queryKeys';
 import './App.css';
 
 function App() {
-  const { data: postList } = useQuery({ ...queryKey.posts.all });
-  const { data: postDetail } = useQuery({ ...queryKey.posts.detail('5') });
-  const { data: commentDetail } = useSuspenseQuery({ ...queryKey.comments.detail('3') });
+  const { data: postList } = useQuery({ ...queryKeys.posts.all });
+  const { data: postDetail } = useQuery({ ...queryKeys.posts.detail('5') });
+  const { data: commentDetail } = useSuspenseQuery({ ...queryKeys.comments.detail('3') });
 
   const { mutate: addPost } = useMutation({ mutationFn: postAPI.addPost });
   const { mutate: modifyPost } = useModifyPost();
