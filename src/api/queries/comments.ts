@@ -1,27 +1,13 @@
-import axios from 'axios';
 import { createQueryKeys } from '@lukemorales/query-key-factory';
-
-type Comment = {
-  postId: number;
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-};
+import commentAPI from '../functions/commentAPI';
 
 export const comments = createQueryKeys('comments', {
   all: {
     queryKey: null,
-    queryFn: async () => {
-      const { data } = await axios.get<Comment[]>('https://jsonplaceholder.typicode.com/comments');
-      return data;
-    },
+    queryFn: commentAPI.fetchComments,
   },
   detail: (commentId: string) => ({
     queryKey: [commentId],
-    queryFn: async () => {
-      const { data } = await axios.get<Comment>(`https://jsonplaceholder.typicode.com/comments/${commentId}`);
-      return data;
-    },
+    queryFn: () => commentAPI.fetchCommentDetail(commentId),
   }),
 });
